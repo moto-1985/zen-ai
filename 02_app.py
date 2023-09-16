@@ -53,12 +53,18 @@ def main():
     init_messages()
 
     # ユーザーの入力を監視
-    if user_input := st.chat_input("聞きたいことを入力してね！"):
-        st.session_state.messages.append(HumanMessage(content=user_input))
-        with st.spinner("ChatGPT is typing ..."):
-            answer, cost = get_answer(llm, st.session_state.messages)
-        st.session_state.messages.append(AIMessage(content=answer))
-        st.session_state.costs.append(cost)
+    container = st.container()
+    with container:
+        with st.form(key="my_form", clear_on_submit=True):
+            user_input = st.text_area(label="Message: ", key="input", height=100)
+            submit_button = st.form_submit_button(label="Send")
+    
+        if submit_button and user_input:
+            st.session_state.messages.append(HumanMessage(content=user_input))
+            with st.spinner("ChatGPT is typing ..."):
+                answer, cost = get_answer(llm, st.session_state.messages)
+            st.session_state.messages.append(AIMessage(content=answer))
+            st.session_state.costs.append(cost)
 
     messages = st.session_state.get('messages', [])
     for message in messages:
