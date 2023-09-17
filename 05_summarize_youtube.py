@@ -38,6 +38,8 @@ def get_url_input():
 
 
 def get_document(url):
+    if not url:
+        return None  # URLが提供されていない場合はNoneを返す
     with st.spinner("Fetching Content ..."):
         loader = YoutubeLoader.from_youtube_url(
             url,
