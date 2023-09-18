@@ -3,7 +3,7 @@ langchain==0.0.234
 streamlit==1.24.0
 streamlit-chat==0.1.1
 beautifulsoup4==4.12.2
-urllib3==2.0.3
+urllib3==1.26.16
 youtube-transcript-api==0.6.1
 tiktoken==0.4.0
 pytube==15.0.0
