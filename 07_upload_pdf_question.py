@@ -67,7 +67,7 @@ def get_pdf_text():
 
 def load_qdrant():
     client = QdrantClient(
-        url="https://526d38dc-3dab-4772-b204-4bb2d3d2036d.us-east-1-0.aws.cloud.qdrant.io",
+        url="https://8a6416b3-0bf6-49de-95d6-aa4b531a6355.us-east4-0.gcp.cloud.qdrant.io:6333",
         api_key=API_KEY
     )
 
